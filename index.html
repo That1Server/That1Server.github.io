@@ -12,52 +12,55 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             flex-direction: column;
-            transform: scale(0.75); /* Scales down everything by 25% */
-            transform-origin: center;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
         }
 
         .logo {
-            margin-bottom: 30px;
+            margin-bottom: 5vh;
         }
 
         .logo img {
-            width: 384px; /* Reduced from 512px */
-            height: 384px;
+            width: min(40vw, 300px); /* Scales between 40% of viewport width and max 300px */
+            height: auto;
         }
 
         .sign-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            max-width: 675px; /* Reduced from 900px */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3vh; /* Ensures spacing large enough for fingers */
+            width: min(90vw, 800px); /* Limits max width while being responsive */
             justify-content: center;
+            padding: 2vh;
         }
 
         .sign {
-            background-color: #8B5A2B; 
-            border: 4px solid #5A3E24; 
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-            padding: 18px 30px; /* Reduced */
-            font-size: 16px; /* Reduced */
-            width: 240px; /* Reduced */
-            height: 75px; /* Reduced */
-            position: relative;
-            transition: transform 0.3s ease;
+            background-color: #8B5A2B;
+            border: 5px solid #5A3E24;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+            padding: 3vh 4vw;
+            font-size: clamp(14px, 2.5vw, 24px); /* Scales text size */
+            font-family: 'Minecraft', sans-serif;
+            text-align: center;
+            width: 100%;
+            height: 10vh; /* Ensures a consistent height */
+            min-height: 80px; /* Prevents squishing on mobile */
             display: flex;
             justify-content: center;
             align-items: center;
-            letter-spacing: 1.5px;
-            text-transform: uppercase; 
+            letter-spacing: 2px;
+            text-transform: uppercase;
             word-wrap: break-word;
             font-weight: bold;
+            transition: transform 0.2s ease;
+            position: relative;
         }
 
         .sign:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
         }
 
         .sign::before {
@@ -67,7 +70,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('https://www.minecrafttextures.com/wood_planks.png'); 
+            background-image: url('https://www.minecrafttextures.com/wood_planks.png');
             background-size: cover;
             opacity: 0.1;
             z-index: -1;
@@ -79,11 +82,16 @@
             z-index: 1;
         }
 
+        @media (max-width: 600px) {
+            .sign-container {
+                grid-template-columns: repeat(1, 1fr); /* Single column on small screens */
+            }
+        }
+
         @font-face {
             font-family: 'Minecraft';
             src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
         }
-
     </style>
 </head>
 <body>

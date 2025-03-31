@@ -11,33 +11,36 @@
             color: white;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            width: 100vw;
             text-align: center;
         }
 
-        /* Minecraft Server Status Section */
+        /* Fullscreen Minecraft Server Status */
         .server-status {
             background-color: #2a2a35;
-            padding: 2vh 3vw;
-            border-radius: 12px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
-            margin-bottom: 5vh;
-            width: min(90vw, 600px);
+            width: 100vw;
+            height: 100vh; /* Full screen */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .server-status h1 {
-            font-size: clamp(16px, 2.5vw, 26px);
+            font-size: clamp(20px, 4vw, 40px);
             margin-bottom: 10px;
         }
 
         .server-status p {
-            font-size: clamp(14px, 2vw, 20px);
+            font-size: clamp(16px, 3vw, 28px);
             margin: 5px 0;
+        }
+
+        /* Section below status */
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 5vh;
         }
 
         .logo {
@@ -117,7 +120,7 @@
 </head>
 <body>
 
-    <!-- Minecraft Server Status -->
+    <!-- Fullscreen Minecraft Server Status -->
     <div class="server-status">
         <h1>Pinging server <span id="serverIP"></span></h1>
         <p>Latency: <span id="latency">...</span>ms</p>
@@ -125,14 +128,17 @@
         <p>Players: <span id="onlinePlayers">?</span>/<span id="maxPlayers">?</span></p>
     </div>
 
-    <div class="logo">
-        <img src="logo.png" alt="Site Logo">
-    </div>
+    <!-- Rest of the site -->
+    <div class="content">
+        <div class="logo">
+            <img src="logo.png" alt="Site Logo">
+        </div>
 
-    <div class="sign-container">
-        <div class="sign"><a href="https://www.paypal.com/paypalme/sdcdpp">PayPal</a></div>
-        <div class="sign"><a href="https://www.youtube.com/@That1Server">YouTube</a></div>
-        <div class="sign"><a href="https://github.com/That1Server/That1Server.github.io/blob/main/server-specs.png?raw=true">Server Specs</a></div>
+        <div class="sign-container">
+            <div class="sign"><a href="https://www.paypal.com/paypalme/sdcdpp">PayPal</a></div>
+            <div class="sign"><a href="https://www.youtube.com/@That1Server">YouTube</a></div>
+            <div class="sign"><a href="https://github.com/That1Server/That1Server.github.io/blob/main/server-specs.png?raw=true">Server Specs</a></div>
+        </div>
     </div>
 
     <script>

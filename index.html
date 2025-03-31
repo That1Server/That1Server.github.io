@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T1S</title>
+    <title>T1S - Minecraft Server Status</title>
     <style>
         body {
             background-color: #1b1b1b;
@@ -17,6 +17,27 @@
             justify-content: center;
             height: 100vh;
             width: 100vw;
+            text-align: center;
+        }
+
+        /* Minecraft Server Status Section */
+        .server-status {
+            background-color: #2a2a35;
+            padding: 2vh 3vw;
+            border-radius: 12px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+            margin-bottom: 5vh;
+            width: min(90vw, 600px);
+        }
+
+        .server-status h1 {
+            font-size: clamp(16px, 2.5vw, 26px);
+            margin-bottom: 10px;
+        }
+
+        .server-status p {
+            font-size: clamp(14px, 2vw, 20px);
+            margin: 5px 0;
         }
 
         .logo {
@@ -24,15 +45,15 @@
         }
 
         .logo img {
-            width: min(40vw, 300px); /* Scales between 40% of viewport width and max 300px */
+            width: min(40vw, 300px);
             height: auto;
         }
 
         .sign-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3vh; /* Ensures spacing large enough for fingers */
-            width: min(90vw, 800px); /* Limits max width while being responsive */
+            gap: 3vh;
+            width: min(90vw, 800px);
             justify-content: center;
             padding: 2vh;
         }
@@ -42,12 +63,12 @@
             border: 5px solid #5A3E24;
             box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
             padding: 3vh 4vw;
-            font-size: clamp(14px, 2.5vw, 24px); /* Scales text size */
+            font-size: clamp(14px, 2.5vw, 24px);
             font-family: 'Minecraft', sans-serif;
             text-align: center;
             width: 100%;
-            height: 10vh; /* Ensures a consistent height */
-            min-height: 50px; /* Prevents squishing on mobile */
+            height: 10vh;
+            min-height: 80px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -84,7 +105,7 @@
 
         @media (max-width: 600px) {
             .sign-container {
-                grid-template-columns: repeat(1, 1fr); /* Single column on small screens */
+                grid-template-columns: repeat(1, 1fr);
             }
         }
 
@@ -96,6 +117,14 @@
 </head>
 <body>
 
+    <!-- Minecraft Server Status -->
+    <div class="server-status">
+        <h1>Pinging server <span id="serverIP"></span></h1>
+        <p>Latency: <span id="latency">...</span>ms</p>
+        <p>MOTD: <span id="motd">Loading...</span></p>
+        <p>Players: <span id="onlinePlayers">?</span>/<span id="maxPlayers">?</span></p>
+    </div>
+
     <div class="logo">
         <img src="logo.png" alt="Site Logo">
     </div>
@@ -105,6 +134,28 @@
         <div class="sign"><a href="https://www.youtube.com/@That1Server">YouTube</a></div>
         <div class="sign"><a href="https://github.com/That1Server/That1Server.github.io/blob/main/server-specs.png?raw=true">Server Specs</a></div>
     </div>
+
+    <script>
+        const serverIP = "your_server_ip_here";
+
+        async function fetchServerStatus() {
+            try {
+                const response = await fetch(`https://mcstatus.io/api/v2/status/${serverIP}`);
+                const data = await response.json();
+
+                document.getElementById("serverIP").textContent = serverIP;
+                document.getElementById("latency").textContent = data.ping;
+                document.getElementById("motd").textContent = data.motd.clean || "N/A";
+                document.getElementById("onlinePlayers").textContent = data.players.online;
+                document.getElementById("maxPlayers").textContent = data.players.max;
+            } catch (error) {
+                console.error("Error fetching server status:", error);
+                document.getElementById("motd").textContent = "Server Offline";
+            }
+        }
+
+        fetchServerStatus();
+    </script>
 
 </body>
 </html>

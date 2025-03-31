@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Minecraft Server Status</title>
+<style>
+body, html {
+  background-color: #1c1b22;
+  color: white;
+}
+</style>
+</head>
+<body>
+  <h1>Pinging server <span id="serverIP"></span></h1>
+  <p>Latency: <span id="latency"></span>ms</p>
+  <p>MOTD: <span id="motd"></span></p>
+  <p>Players: <span id="onlinePlayers"></span>/<span id="maxPlayers"></span></p>
+
+  <script>
+    // Replace with your server's IP address
+    const serverIP = "your_server_ip_here";
+
+    // Function to fetch server status
+    async function fetchServerStatus() {
+      try {
+        const response = await fetch(`https://mcstatus.io/api/v2/status/${serverIP}`);
+        const data = await response.json();
+
+        document.getElementById("serverIP").textContent = serverIP;
+        document.getElementById("latency").textContent = data.ping;
+        document.getElementById("motd").textContent = data.motd;
+        document.getElementById("onlinePlayers").textContent = data.players.online;
+        document.getElementById("maxPlayers").textContent = data.players.max;
+      } catch (error) {
+        console.error("Error fetching server status:", error);
+        document.getElementById("motd").textContent = "Server Offline";
+      }
+    }
+
+    // Call the function to fetch and display the status
+    fetchServerStatus();
+  </script>
+</body>
+</html>

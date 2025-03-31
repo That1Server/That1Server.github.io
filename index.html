@@ -16,51 +16,50 @@
             align-items: center;
             height: 100vh;
             flex-direction: column;
+            transform: scale(0.75); /* Scales down everything by 25% */
+            transform-origin: center;
         }
 
-       
         .logo {
-            margin-bottom: 40px;
-			justify-content: center;
+            margin-bottom: 30px;
         }
 
-        
+        .logo img {
+            width: 384px; /* Reduced from 512px */
+            height: 384px;
+        }
+
         .sign-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            max-width: 900px; 
+            gap: 15px;
+            max-width: 675px; /* Reduced from 900px */
             justify-content: center;
         }
 
-        
         .sign {
             background-color: #8B5A2B; 
-            border: 5px solid #5A3E24; 
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
-            padding: 25px 40px;
-            font-size: 22px;
-            font-family: 'Minecraft', sans-serif;
-            text-align: center;
-            width: 320px; 
-            height: 100px;
+            border: 4px solid #5A3E24; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+            padding: 18px 30px; /* Reduced */
+            font-size: 16px; /* Reduced */
+            width: 240px; /* Reduced */
+            height: 75px; /* Reduced */
             position: relative;
             transition: transform 0.3s ease;
             display: flex;
             justify-content: center;
             align-items: center;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase; 
             word-wrap: break-word;
             font-weight: bold;
         }
 
-        
         .sign:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
         }
 
-        
         .sign::before {
             content: '';
             position: absolute;
@@ -74,14 +73,12 @@
             z-index: -1;
         }
 
-        
         .sign a {
             color: white;
             text-decoration: none;
             z-index: 1;
         }
 
-        
         @font-face {
             font-family: 'Minecraft';
             src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -91,16 +88,14 @@
 </head>
 <body>
 
-   
     <div class="logo">
-        <img src="logo.png" alt="Site Logo" width="512" height="512">
+        <img src="logo.png" alt="Site Logo">
     </div>
 
-    
     <div class="sign-container">
         <div class="sign"><a href="https://www.paypal.com/paypalme/sdcdpp">PayPal</a></div>
-        <div class="sign"><a href="https://www.youtube.com/@That1Server">Youtube</a></div>
-	<div class="sign"><a href="https://github.com/That1Server/That1Server.github.io/blob/main/server-specs.png?raw=true">Server Specs</a></div>
+        <div class="sign"><a href="https://www.youtube.com/@That1Server">YouTube</a></div>
+        <div class="sign"><a href="https://github.com/That1Server/That1Server.github.io/blob/main/server-specs.png?raw=true">Server Specs</a></div>
     </div>
 
 </body>

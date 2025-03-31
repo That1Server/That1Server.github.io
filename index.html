@@ -6,61 +6,61 @@
     <title>Minecraft Themed Links</title>
     <style>
         body {
-            background-color: #1b1b1b; /* Dark background for the Minecraft theme */
-            font-family: 'Minecraft', sans-serif; /* Minecraft-like font */
+            background-color: #1b1b1b;
+            font-family: 'Minecraft', sans-serif;
             color: white;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full viewport height */
+            height: 100vh;
             flex-direction: column;
         }
 
-        /* Logo at the top */
+       
         .logo {
             margin-bottom: 40px;
 			justify-content: center;
         }
 
-        /* Container for the signs */
+        
         .sign-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            max-width: 900px; /* Limit the container width */
+            max-width: 900px; 
             justify-content: center;
         }
 
-        /* Style for each Minecraft-like sign */
+        
         .sign {
-            background-color: #8B5A2B; /* Wooden color */
-            border: 5px solid #5A3E24; /* Darker border */
+            background-color: #8B5A2B; 
+            border: 5px solid #5A3E24; 
             box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
             padding: 25px 40px;
             font-size: 22px;
             font-family: 'Minecraft', sans-serif;
             text-align: center;
-            width: 320px; /* Increased width for a longer sign */
+            width: 320px; 
             height: 100px;
             position: relative;
             transition: transform 0.3s ease;
             display: flex;
             justify-content: center;
             align-items: center;
-            letter-spacing: 2px; /* Slight space between letters for a blocky feel */
-            text-transform: uppercase; /* Capitalize all text */
+            letter-spacing: 2px;
+            text-transform: uppercase; 
             word-wrap: break-word;
             font-weight: bold;
         }
 
-        /* Hover effect for signs */
+        
         .sign:hover {
             transform: translateY(-5px);
         }
 
-        /* Add wooden texture background */
+        
         .sign::before {
             content: '';
             position: absolute;
@@ -68,20 +68,20 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('https://www.minecrafttextures.com/wood_planks.png'); /* Example Minecraft wood texture */
+            background-image: url('https://www.minecrafttextures.com/wood_planks.png'); 
             background-size: cover;
             opacity: 0.1;
             z-index: -1;
         }
 
-        /* Links inside the sign */
+        
         .sign a {
             color: white;
             text-decoration: none;
             z-index: 1;
         }
 
-        /* Custom Minecraft font */
+        
         @font-face {
             font-family: 'Minecraft';
             src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -91,16 +91,16 @@
 </head>
 <body>
 
-    <!-- Logo -->
+   
     <div class="logo">
         <img src="logo.png" alt="Site Logo" width="512" height="512">
     </div>
 
-    <!-- Minecraft-style signs with links -->
+    
     <div class="sign-container">
         <div class="sign"><a href="https://www.paypal.com/paypalme/sdcdpp">PayPal</a></div>
         <div class="sign"><a href="https://www.youtube.com/@That1Server">Youtube</a></div>
-		<div class="sign"><a href="https://www.youtube.com/@That1Server">Server Specs</a></div>
+	<div class="sign"><a href="https://github.com/That1Server/That1Server.github.io/blob/main/server-specs.png?raw=true">Server Specs</a></div>
     </div>
 
 </body>
